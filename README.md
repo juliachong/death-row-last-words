@@ -1,21 +1,36 @@
 # death-row-last-words
 
-I used a dataset of the last words of inmates sentenced to death in the state of Florida to categorize certain inmates as claiming to be
-innocent up until their death. After reading many statements, I chose to search for certain words and phrases within the dataset that could
-determine whether the inmate claimed to be innocent. Examples of terms included in my search terms were: "did not do", "innocent", "did not 
-murder", and "truth".
+Goal: Categorize and predict death row inmates claiming innocence in their official last words statement by the race, age, race of victim, previous crimes, and education level through machine learning algorithms.
 
-The goal of this project was to find any patterns that could be used to predict whether an inmate claimed to be innocent. The dataset
-included information such as the race of the victim, the race of the inmate, the age of the inmate, education level, and previous crimes.
+Data: 
+- Kaggle dataset (https://www.kaggle.com/mykhe1097/last-words-of-death-row-inmates)
+- Filtered last words statements by certain words/phrases to determine whether the inmate claimed innocence. Such words include, "did not do", "innocent", "did not murder", and "truth.
 
-Due to the fact that there was a huge class imbalance between proclaimed innocent inmates and not, I used SMOTE to resample my data and 
-create synthetic datapoints. I ran a decision tree after resampling the data using sklearn, then tuned and pruned my tree using a
-validation curve, gridsearch, and randomforest. 
+Process:
+- Used SMOTE to resample and create synthetic data points to combat the class imbalance, since innocence-claiming inmates were a huge minority.
 
-To determine the strongest indicators of proclaimed innocence, I used feature selection to score each feature of my model. The number one
-feature in both my decision tree and feature selection ended up being whether the victim was white. In addition to this, I ran a correlation
-on each of the features in the dataset to compare the most important correlators with innocence, and a feature importance. 
+![](smote_before.png)
+![](smote_after.png)
 
-Lastly, I implemented AdaBoost and K Nearest Neighbors to possibly obtain a more accurate model.
+- Ran a decision tree after resampling, tuned and pruned the tree using a validation curve, gridsearch, and a randomforest.
+
+![](decisiontree.png)
+
+- Obtained the most important features using sklearn
+
+![](heatmap.png)
+
+- Implemented K Nearest Neighbors and AdaBoost model
+
+![](knearestneighbors.png)
+
+
+Conclusions:
+- K-Nearest Neighbors ended up being the most accurate model.
+- One of the biggest indicators of proclaimed innocence among all models was whether or not their victim was white.
+
+
+
+
 
 
